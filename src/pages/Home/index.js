@@ -9,20 +9,20 @@ function App() {
   const [cars, setCars] = useState([]);
   const findCars = async ()=>{
       const { data } = await vehicle.list();
-      console.log(data);
       setCars(data.content)
   }
+  
   useEffect(()=>{
     findCars()
 
-
   }, []);
+
   return (
     <div className="">
       <NavBar/>
       <header className="App-header">
         {
-          cars.map((car)=> <VehicleView car={car}/>)
+          cars.map((car)=> <VehicleView vehicle={car}/>)
         }
       </header>
     </div>
